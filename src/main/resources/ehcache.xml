@@ -1,0 +1,14 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false"
+         monitoring="autodetect" dynamicConfig="true" name="nutzbook">
+    <!-- <diskStore path="java.io.tmpdir/shiro-ehcache"/> -->
+    <defaultCache
+            maxElementsInMemory="10000"
+            eternal="true"
+            timeToIdleSeconds="0"
+            timeToLiveSeconds="0"
+            overflowToDisk="true"
+            diskPersistent="true"
+            diskExpiryThreadIntervalSeconds="3600"
+    />
+</ehcache>

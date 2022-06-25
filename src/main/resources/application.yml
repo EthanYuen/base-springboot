@@ -1,0 +1,90 @@
+server:
+  port: 8000
+  servlet:
+    context-path: /base-springboot/
+  tomcat:
+    threads:
+      min-spare: 30
+      max: 1000
+    connection-timeout: 20000
+    accept-count: 1000
+    max-keep-alive-requests: 1000
+spring:
+  profiles:
+    active: @env@ #dev开发环境，prod生产环境,在maven工具栏的Profiles下选择环境
+  datasource:
+    url: jdbc:mysql://localhost:3306/base-springboot?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      filters: stat
+      max-active: 30
+      initialSize: 2
+      maxWait: 6000
+      minIdle: 2
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      test-while-idle: true
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      maxPoolPreparedStatementPerConnectionSize: 10
+      maxOpenPreparedStatements: 20
+      asyncInit: true
+      validation-query: select 1
+  main:
+    banner-mode: off
+
+nutz:
+  dao:
+    runtime:
+      create: true
+      migration: true
+      basepackage:
+        - org.ethanyuen.springboot.bean
+      delete-column: false
+knife4j:
+  enable: true
+  setting:
+    enableVersion: true
+    swaggerModelName: 实体类说明
+  documents:
+    - name: 项目文档
+      locations: classpath:doc/*
+      group: 平台接口文档
+
+db-name: base-springboot
+#数据库备份表正则
+backup-table-patten: .*
+#mysqlbin路径
+mysqlpath: E:/mysql-5.7.27-winx64/mysql-5.7.27-winx64/bin/
+#微信小程序appId
+wx-appId:
+#微信小程序appSecret
+wx-secret:
+#微信小程序消息模板id
+wx-templateId:
+#uniapp-appId
+uni-appId:
+#uniapp-appKey
+uni-appKey:
+#uniapp-masterSecret
+uni-masterSecret:
+#腾讯短信APPID
+tx-sm-appId:
+#腾讯短信APPKey
+tx-sm-appKey:
+#腾讯短信模板id
+tx-sm-templateId:
+#企业微信机器人hook
+qywx-hook:
+#七牛ACCESS_KEY
+qiniu-accessKey:
+#七牛SECRET_KEY
+qiniu-secretKey:
+#七牛bucketName
+qiniu-bucketName:
+
+
